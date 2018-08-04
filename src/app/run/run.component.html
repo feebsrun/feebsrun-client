@@ -1,0 +1,26 @@
+<form [formGroup]="runForm">
+  <label>Duration</label>
+  <input type="number" formControlName="duration"/>
+
+  <label>Distance</label>
+  <input type="number" formControlName="distance"/>
+
+  <button (click)="addRun()">Add Run</button>
+</form>
+
+<ul>
+  <li *ngFor="let run of runs | async">
+    <span>{{run.time}} - {{run.distance}}</span>
+  </li>
+</ul>
+<div class="row">
+  <mdb-card *ngFor="let run of runs | async" cascade="true" narrower="true">
+    <div class="view view-cascade gradient-card-header purple-gradient">
+      <h2 class="card-header-title">{{run.distance}}</h2>
+      <p>{{run.time}}</p>
+      <div class="text-center">
+        
+      </div>
+    </div>
+  </mdb-card>
+</div>
