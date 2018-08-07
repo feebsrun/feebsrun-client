@@ -1,23 +1,67 @@
-<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar ie-nav" [containerInside]="false">
-  <mdb-navbar-brand>
-      <a class="logo navbar-brand" routerLink=""><strong>Home</strong></a>
-  </mdb-navbar-brand>
-  <links>
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item waves-light" mdbWavesEffect>
-              <a class="nav-link" routerLink="runs">Runs</a>
-          </li>
-          <li class="nav-item waves-light" mdbWavesEffect>
-              <a class="nav-link" routerLink="blog">Blog</a>
-          </li>
-      </ul>
-      <ul class="navbar-nav nav-flex-icons">
-          <li class="nav-item waves-light" mdbWavesEffect>
-              <a class="nav-link"><i class="fa fa-user"></i></a>
-          </li>
-      </ul>
-  </links>
-</mdb-navbar>
+<header>
+    <mdb-side-nav #sidenav class="sn-bg-1 hide-sidenav-overflow" [fixed]="false">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand" routerLink=""><strong>Home</strong></a>
+        </mdb-navbar-brand>
+        <links>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <mdb-accordion [multiple]="false" aria-multiselectable="false">
+                        <mdb-accordion-item class="no-collase">
+                            <mdb-accordion-item-head mdbWavesEffect>
+                                <a class="nav-link" routerLink="runs">Runs</a>
+                            </mdb-accordion-item-head>
+                            <mdb-accordion-item-body></mdb-accordion-item-body>
+                        </mdb-accordion-item>
+                        <mdb-accordion-item class="no-collase">
+                            <mdb-accordion-item-head mdbWavesEffect>
+                                <a class="nav-link" routerLink="blog">Blog</a>
+                            </mdb-accordion-item-head>
+                            <mdb-accordion-item-body></mdb-accordion-item-body>
+                        </mdb-accordion-item>
+                    </mdb-accordion>
+                </ul>
+            </li>
+        </links>
+        <div class="sidenav-bg mask-strong"></div>
+    </mdb-side-nav>
+    <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-dark pink scrolling-navbar double-nav" [containerInside]="false">
+        <navlinks class="navbar-container">
+            <!-- SideNav slide-out button -->
+            <div class="float-left">
+                <a (click)="sidenav.show()" class="button-collapse hidden-nav-button-collapse">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <!--/. SideNav slide-out button -->
+        </navlinks>
+
+        <mdb-navbar-brand>
+            <!-- Breadcrumb-->
+            <div class="breadcrumbs breadcrumbs-hidden-nav breadcrumb-dn mr-auto">
+                <p>Feebs Run</p>
+            </div>
+            <!--/. Breadcrumb-->
+        </mdb-navbar-brand>
+        <navlinks>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav ie-hidden-double-nav">
+                <li class="nav-item">
+                    <a class="nav-link waves-light" mdbWavesEffect>
+                        <i class="fa fa-envelope"></i>
+                        <span class="clearfix d-none d-sm-inline-block">Contact</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" mdbWavesEffect>
+                        <i class="fa fa-user"></i>
+                        <span class="clearfix d-none d-sm-inline-block">Account</span>
+                    </a>
+                </li>
+            </ul>
+        </navlinks>
+    </mdb-navbar>
+</header>
+
 <!-- Main -->
 <main>
   <div class="app-container">

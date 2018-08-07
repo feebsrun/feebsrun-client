@@ -1,0 +1,28 @@
+<mdb-card>
+  <div class="view overlay waves-light" mdbWavesEffect>
+    <mdb-card-img src="{{run.path}}" alt="No route defined"></mdb-card-img>
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3 waves-light" mdbWavesEffect>
+    <i class="fa fa-chevron-right pl-1 waves-light" mdbWavesEffect></i>
+  </a>
+  <mdb-card-body>
+    <mdb-card-title>
+      <h4>{{run.date | date}}</h4>
+    </mdb-card-title>
+    <hr>
+    <p class="font-small grey-dark-text mb-0">{{run.distance}}</p>
+    <p class="font-small grey-dark-text mb-0">{{run.time}}</p>
+  </mdb-card-body>
+  <mdb-card-footer class="mdb-color lighten-3 text-center">
+    <ul class="list-unstyled list-inline font-small">
+      <li class="list-inline-item pr-2">
+          <a mdbBtn floating="true" size="sm" gradient="purple" mdbWavesEffect>
+            <i class="fa fa-comments-o pr-1"></i>
+          </a>
+      </li>
+    </ul>
+  </mdb-card-footer>
+</mdb-card>

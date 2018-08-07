@@ -1,21 +1,50 @@
-<form [formGroup]="runForm">
-  <label>Duration</label>
-  <input type="number" formControlName="duration"/>
-
-  <label>Distance</label>
-  <input type="number" formControlName="distance"/>
-
-  <button (click)="addRun()">Add Run</button>
-</form>
+<button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" (click)="frame.show()" mdbWavesEffect>Add Run</button>
 
 <div class="row">
-  <mdb-card *ngFor="let run of runs | async" cascade="true" narrower="true">
-    <div class="view view-cascade gradient-card-header purple-gradient">
-      <h2 class="card-header-title">{{run.distance}}</h2>
-      <p>{{run.time}}</p>
-      <div class="text-center">
-        
+  <app-run-card *ngFor="let run of runs | async" [run]="run"></app-run-card>
+</div>
+
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Add Run</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <form [formGroup]="runForm">
+          <div class="row">
+            <div class="md-form col-md-6 mb-5">
+              <input type="number" id="form3" class="form-control" mdbInputDirective formControlName="duration">
+              <label data-error="wrong" data-success="right" for="form3">Duration</label>
+            </div>
+    
+            <div class="md-form col-md-6">
+              <input type="number" id="form2" class="form-control" mdbInputDirective formControlName="distance">
+              <label data-error="wrong" data-success="right" for="form2">Distance</label>
+            </div>
+          </div>
+          <div class="row">
+              <mdb-date-picker name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" formControlName="date" required></mdb-date-picker>
+          </div>
+        </form>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" mdbBtn color="warning" outline="true" class="waves-effect" mdbWavesEffec (click)="addRun()"t>
+          <i class="fa fa-save ml-1"></i>
+          <span>Save</span>
+        </a>
       </div>
     </div>
-  </mdb-card>
+    <!--/.Content-->
+  </div>
 </div>

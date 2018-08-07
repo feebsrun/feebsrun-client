@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SwUpdate} from '@angular/service-worker';
+//import {SwUpdate} from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,13 @@ import {SwUpdate} from '@angular/service-worker';
 export class AppComponent {
   title = 'run';
 
-  constructor(updates: SwUpdate){
-    updates.available.subscribe(event => {
-      updates
-        .activateUpdate()
-        .then(()=> document.location.reload());
-    });
+  constructor(
+    //updates: SwUpdate
+  ){
+   // updates.available.subscribe(event => {
+    //  updates
+   //     .activateUpdate()
+   //     .then(()=> document.location.reload());
+   // });
   }
 }

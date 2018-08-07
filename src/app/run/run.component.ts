@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RunService } from './run.service';
 import { Run } from '../models/run.model';
 import { Observable } from 'rxjs';
 import { LoadingService } from '../loading.service';
+import { IMyOptions } from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-run',
@@ -12,10 +13,12 @@ import { LoadingService } from '../loading.service';
 })
 export class RunComponent implements OnInit {
   runs:Observable<Run>;
+  myDatePickerOptions: IMyOptions = {}
 
   runForm = new FormGroup({
-    distance: new FormControl(''),
-    duration: new FormControl('')
+    distance: new FormControl('', Validators.required),
+    duration: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required)
   })
 
   constructor(
@@ -31,6 +34,7 @@ export class RunComponent implements OnInit {
     const run = new Run();
     run.distance = parseFloat(this.runForm.get('distance').value);
     run.time = this.runForm.get('duration').value;
+    run.date = this.runForm.get('date').value;
     this.runs = this.runService.addItem(run);
   }
 
