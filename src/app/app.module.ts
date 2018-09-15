@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RunCardComponent } from './run/run-card/run-card.component';
+import { AuthenticatingComponent } from './auth/authenticating.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RunCardComponent } from './run/run-card/run-card.component';
     RunComponent,
     BlogComponent,
     HomeComponent,
-    RunCardComponent
+    RunCardComponent,
+    AuthenticatingComponent
   ],
   imports: [
     BrowserModule,

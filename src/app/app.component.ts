@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 //import {SwUpdate} from '@angular/service-worker';
 
 @Component({
@@ -10,7 +11,8 @@ export class AppComponent {
   title = 'run';
 
   constructor(
-    //updates: SwUpdate
+    //updates: SwUpdate,
+    public authService: AuthService
   ){
    // updates.available.subscribe(event => {
     //  updates

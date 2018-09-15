@@ -25,7 +25,7 @@
         </links>
         <div class="sidenav-bg mask-strong"></div>
     </mdb-side-nav>
-    <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-dark pink scrolling-navbar double-nav" [containerInside]="false">
+    <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-dark scrolling-navbar double-nav" [containerInside]="false">
         <navlinks class="navbar-container">
             <!-- SideNav slide-out button -->
             <div class="float-left">
@@ -51,10 +51,20 @@
                         <span class="clearfix d-none d-sm-inline-block">Contact</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="authService.isLoggedIn">
                     <a class="nav-link waves-light" mdbWavesEffect>
                         <i class="fa fa-user"></i>
                         <span class="clearfix d-none d-sm-inline-block">Account</span>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="!authService.isLoggedIn">
+                    <a class="nav-link waves-light" mdbWavesEffect (click)="authService.login()">
+                        <span class="clearfix d-none d-sm-inline-block">Log in</span>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="authService.isLoggedIn">
+                    <a class="nav-link waves-light" mdbWavesEffect (click)="authService.logout()">
+                        <span class="clearfix d-none d-sm-inline-block">Log out</span>
                     </a>
                 </li>
             </ul>
