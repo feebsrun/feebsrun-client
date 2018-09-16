@@ -22,6 +22,12 @@
 
 .navbar {
     background-color: $sitemain;
+
+    .nav-item {
+        .nav-link {
+            color: $navlinktext;
+        }
+    }
 }
 
 .app-container {
