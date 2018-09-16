@@ -1,7 +1,9 @@
 <header>
-    <mdb-side-nav #sidenav class="sn-bg-1 hide-sidenav-overflow" [fixed]="false">
+    <mdb-side-nav #sidenav class="fixed" [fixed]="true">
         <mdb-navbar-brand>
-            <a class="logo navbar-brand" routerLink=""><strong>Home</strong></a>
+            <a class="logo navbar-brand" routerLink="">
+                <img class="logo-img" src="assets/img/logo_transparent.png" alt="FeebsRun">
+            </a>
         </mdb-navbar-brand>
         <links>
             <li>
@@ -25,7 +27,7 @@
         </links>
         <div class="sidenav-bg mask-strong"></div>
     </mdb-side-nav>
-    <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-dark scrolling-navbar double-nav" [containerInside]="false">
+    <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav" [containerInside]="false">
         <navlinks class="navbar-container">
             <!-- SideNav slide-out button -->
             <div class="float-left">
@@ -39,7 +41,7 @@
         <mdb-navbar-brand>
             <!-- Breadcrumb-->
             <div class="breadcrumbs breadcrumbs-hidden-nav breadcrumb-dn mr-auto">
-                <p>Feebs Run</p>
+                <p>FeebsRun</p>
             </div>
             <!--/. Breadcrumb-->
         </mdb-navbar-brand>
