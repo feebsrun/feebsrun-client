@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Run } from '../models/run.model';
 import { EntityService } from '../entity.service';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root'

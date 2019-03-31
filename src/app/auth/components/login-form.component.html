@@ -1,0 +1,13 @@
+<mdb-card>
+  <mdb-card-body>
+    <mdb-card-title>
+      <h4>Welcome</h4>
+    </mdb-card-title>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="loginButtons">
+        <button type="submit" mdbBtn color="primary">Log In</button>
+      </div>
+    </form>
+  </mdb-card-body>
+</mdb-card>

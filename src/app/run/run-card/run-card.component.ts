@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Run } from '../../models/run.model';
+import { faRoute, faComments } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-run-card',
@@ -8,12 +9,16 @@ import { Run } from '../../models/run.model';
 })
 export class RunCardComponent implements OnInit {
 
-  @Input()
-  run:Run;
+  @Input() run:Run;
+
+  @Output() open: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  openRun(): void {
+    this.open.emit();
+  }
 }

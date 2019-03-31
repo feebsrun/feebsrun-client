@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { RunComponent } from './run/run.component';
 import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home.component';
-import { AuthenticatingComponent } from './auth/authenticating.component';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/services/auth.guard';
+import { RunDetailsComponent } from './run/run-details/run-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'runs', component: RunComponent /*, canActivate: [AuthGuard] */},
-  {path: 'blog', component: BlogComponent},
-  {path: 'authenticating', component: AuthenticatingComponent}
+  {path: 'runs/:runId', component: RunDetailsComponent},
+  {path: 'blog', component: BlogComponent}
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseEntity } from './models/base.model';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './auth/services/auth.service';
 
 export class EntityService<T extends BaseEntity> {
   protected apiUrl = 'http://localhost:8080';
@@ -11,9 +11,9 @@ export class EntityService<T extends BaseEntity> {
 
   constructor(protected http: HttpClient, protected apiRouteBase: string, protected authService: AuthService) { }
 
-  getItems(): Observable<T>{
+  getItems(): Observable<T[]>{
     this.updateHeadersWithToken();
-    return this.http.get<T>(`${this.apiUrl}/api/${this.apiRouteBase}`);
+    return this.http.get<T[]>(`${this.apiUrl}/api/${this.apiRouteBase}`);
   }
 
   getItem(id:string): Observable<T>{

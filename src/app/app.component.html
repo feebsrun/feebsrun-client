@@ -53,18 +53,18 @@
                         <span class="clearfix d-none d-sm-inline-block">Contact</span>
                     </a>
                 </li>
-                <li class="nav-item" *ngIf="authService.isLoggedIn">
+                <li class="nav-item" *ngIf="authService.authenticated">
                     <a class="nav-link waves-light" mdbWavesEffect>
                         <i class="fa fa-user"></i>
                         <span class="clearfix d-none d-sm-inline-block">Account</span>
                     </a>
                 </li>
-                <li class="nav-item" *ngIf="!authService.isLoggedIn">
+                <li class="nav-item" *ngIf="!authService.authenticated">
                     <a class="nav-link waves-light" mdbWavesEffect (click)="authService.login()">
                         <span class="clearfix d-none d-sm-inline-block">Log in</span>
                     </a>
                 </li>
-                <li class="nav-item" *ngIf="authService.isLoggedIn">
+                <li class="nav-item" *ngIf="authService.authenticated">
                     <a class="nav-link waves-light" mdbWavesEffect (click)="authService.logout()">
                         <span class="clearfix d-none d-sm-inline-block">Log out</span>
                     </a>
