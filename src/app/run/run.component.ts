@@ -8,7 +8,6 @@ import { IMyOptions } from 'ng-uikit-pro-standard';
 
 import * as fromStore from '../store';
 import { Router } from '@angular/router';
-import { ModalService, ModalOpts } from '../modal/services/modal.service';
 import { ModalComponent } from '../modal/components/modal.component';
 
 @Component({
@@ -18,7 +17,10 @@ import { ModalComponent } from '../modal/components/modal.component';
 })
 export class RunComponent implements OnInit {
   runs$:Observable<Run[]>;
-  myDatePickerOptions: IMyOptions = {}
+  myDatePickerOptions: IMyOptions = {
+    dateFormat: 'mmm dd, yyyy',
+    closeAfterSelect: true
+  }
 
   runForm = new FormGroup({
     distance: new FormControl('', Validators.required),
@@ -26,10 +28,10 @@ export class RunComponent implements OnInit {
     date: new FormControl('', Validators.required)
   })
 
-  @ViewChild('runEditor') addRunTemplate: TemplateRef<any>;
+  @ViewChild(ModalComponent) addRunModal: ModalComponent;
   modalRef: ModalComponent;
 
-  constructor(private store: Store<fromStore.EntityState>, private router: Router, private modalService: ModalService) { }
+  constructor(private store: Store<fromStore.EntityState>, private router: Router) { }
 
   ngOnInit() {
     this.runs$ = this.store.select(fromStore.getAllRuns);
@@ -48,16 +50,16 @@ export class RunComponent implements OnInit {
     run.date = this.runForm.get('date').value;
     // this.runs = this.runService.addItem(run);
 
-    this.modalService.closeModal(this.modalRef);
+    alert(JSON.stringify(run));
   }
 
   openRunDialog(): void {
-    let opts: ModalOpts = {
-      title: 'Add Run',
-      saveAction: () => this.addRun()
-    }
-
-    this.modalRef = this.modalService.openModal(opts, this.addRunTemplate);
+    this.runForm.reset({
+      distance: '',
+      duration: '',
+      date: ''
+    });
+    this.addRunModal.openModal();
   }
 
   openRun(run: Run): void {

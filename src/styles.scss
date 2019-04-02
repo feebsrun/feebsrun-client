@@ -33,3 +33,12 @@
 .app-container {
     background-color: $sitebackground;
 }
+
+.control-label + .md-form,
+.control-label + mdb-date-picker {
+    margin-top: 0;
+
+    .mydp.picker > .md-form {
+        margin-top: 0;
+    }
+}

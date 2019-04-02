@@ -24,6 +24,7 @@ import { reducers, effects, CustomSerializer } from './store';
 import { from } from 'rxjs';
 import { ModalComponent } from './modal/components/modal.component';
 import { AuthModule } from './auth/auth.module';
+import { TimespanInputComponent } from './controls/timespan/timespan.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthModule } from './auth/auth.module';
     HomeComponent,
     RunCardComponent,
     RunDetailsComponent,
-    ModalComponent
+    ModalComponent,
+    TimespanInputComponent
   ],
   imports: [
     BrowserModule,

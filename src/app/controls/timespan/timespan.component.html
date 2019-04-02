@@ -1,0 +1,28 @@
+<form class="timespan-container text-right" [formGroup]="timespanForm">
+  <div class="form-row">
+    <div class="col">
+      <div class="md-form input-group mb-3">
+        <!-- <div class="input-group-prepend">
+          <span class="input-group-text md-addon">H</span>
+        </div> -->
+        <input type="number" placeholder="HH" id="hourInput" class="form-control" mdbInput formControlName="hours">:
+      </div>
+    </div>
+    <div class="col">
+        <div class="md-form input-group mb-3">
+          <!-- <div class="input-group-prepend">
+            <span class="input-group-text md-addon">M</span>
+          </div> -->
+          <input type="number" placeholder="MM" id="minuteInput" class="form-control" mdbInput formControlName="minutes">:
+      </div>
+    </div>
+    <div class="col">
+        <div class="md-form input-group mb-3">
+          <!-- <div class="input-group-prepend">
+            <span class="input-group-text md-addon">S</span>
+          </div> -->
+          <input type="number" placeholder="SS" id="secondInput" class="form-control" mdbInput formControlName="seconds">
+      </div>
+    </div>
+  </div>
+</form>

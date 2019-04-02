@@ -1,0 +1,16 @@
+.timespan-container {
+  height: 40px;
+
+  > .form-row {
+    height: 40px;
+
+    > .col {
+      height: 40px;
+
+      > .md-form {
+        height: 40px;
+        margin: 0;
+      }
+    }
+  }
+}

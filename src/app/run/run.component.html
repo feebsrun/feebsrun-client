@@ -4,24 +4,57 @@
   <app-run-card *ngFor="let run of runs$ | async" [run]="run" (open)="openRun(run)"></app-run-card>
 </div>
 
-<ng-template #runEditor>
+<modal-component title="Add Run" (onSubmit)="addRun()">
   <form [formGroup]="runForm">
-    <div class="row">
-      <div class="md-form col-md-6 mb-5">
-        <input type="number" id="form3" class="form-control" mdbInputDirective formControlName="duration">
-        <label data-error="wrong" data-success="right" for="form3">Duration</label>
+    <div class="form-row">
+      <div class="col">
+        <label class="control-label">Duration</label>
+        <div class="md-form">
+          <!-- <input type="number" id="form3" class="form-control" mdbInput formControlName="duration"> -->
+          <timespan-input id="form3" formControlName="duration"></timespan-input>  
+        </div>
       </div>
-
-      <div class="md-form col-md-6">
-        <input type="number" id="form2" class="form-control" mdbInputDirective formControlName="distance">
-        <label data-error="wrong" data-success="right" for="form2">Distance</label>
-      </div>
+      <div class="col">
+        <label class="control-label">Distance</label>
+        <div class="md-form">
+          <input type="number" placeholder="Enter a distance" id="form2" class="form-control" mdbInput formControlName="distance">
+          <!-- <label for="form2">Distance</label> -->
+        </div>
+      </div>      
     </div>
-    <div class="row">
-      <mdb-date-picker name="mydate" [options]="myDatePickerOptions" [placeholder]="'Selected date'" formControlName="date" required></mdb-date-picker>
+    <div class="form-row">
+      <div class="col">
+        <label class="control-label">Date</label>
+        <mdb-date-picker name="mydate" [options]="myDatePickerOptions" [placeholder]="'Enter a date'" formControlName="date" required></mdb-date-picker>
+      </div>      
     </div>
   </form>
-</ng-template>
+</modal-component>
+
+<!-- 
+<ng-template #runEditor>
+  <form [formGroup]="runForm">
+    <div class="form-row">
+      <div class="col">
+        <div class="md-form">
+          <input type="number" id="form3" class="form-control" mdbInput formControlName="duration">
+          <label for="form3">Duration</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="md-form">
+          <input type="number" id="form2" class="form-control" mdbInput formControlName="distance">
+          <label for="form2">Distance</label>
+        </div>
+      </div>      
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <mdb-date-picker name="mydate" [placeholder]="'Selected date'" formControlName="date" required></mdb-date-picker>
+      </div>      
+    </div>
+  </form>
+</ng-template> -->
 
 <!-- <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
