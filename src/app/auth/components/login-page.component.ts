@@ -7,7 +7,7 @@ import { Login } from '../actions/auth.actions';
   selector: 'auth-login-page',
   template: `
     <auth-login-form
-      (submitted)="onLogin($event)">
+      (submitted)="onLogin()">
     </auth-login-form>
   `
 })
