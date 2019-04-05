@@ -26,6 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new Login());
+    // this.store.dispatch(new Login());
   }
 }
